@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-service
+  template:
+    metadata:
+      labels:
+        app: node-service
+      annotations:
+        instrumentation.opentelemetry.io/inject-nodejs: "true"
+    spec:
+      containers:
+        - name: node-service
+          image: tejaskokje/node-service
+          ports:
+            - containerPort: 8080
+

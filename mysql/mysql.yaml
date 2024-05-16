@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  labels:
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:5.7
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: middlewareio
+          volumeMounts:
+            - name: mysql-initdb
+              mountPath: /docker-entrypoint-initdb.d
+            - mountPath: "/var/lib/mysql"
+              subPath: "mysql"
+              name: mysql-data
+      volumes:
+        - name: mysql-initdb
+          configMap:
+            name: mysql-initdb-config
+        - name: mysql-data
+          persistentVolumeClaim:
+            claimName: mysql-data-disk
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-initdb-config
+data:
+  init.sql: |
+    CREATE DATABASE IF NOT EXISTS mydata;
+    USE mydata;
+    CREATE TABLE requestStatus (id INT, code INT);
+    INSERT INTO friends VALUES (0, 200);
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-data-disk
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-service
+  annotations:
+    kubernetes.digitalocean.com/load-balancer-id: "python-service-lb"
+    service.beta.kubernetes.io/do-loadbalancer-size-unit: "1"
+    service.beta.kubernetes.io/do-loadbalancer-disable-lets-encrypt-dns-records: "false"
+    service.beta.kubernetes.io/do-loadbalancer-allow-rules: "ip:67.180.178.183"
+spec:
+  type: LoadBalancer
+  selector:
+    app: python-service
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+

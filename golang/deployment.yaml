@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: golang-service
+  name: golang-service
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: golang-service
+  template:
+    metadata:
+      annotations:
+        instrumentation.opentelemetry.io/inject-go: "true"
+        instrumentation.opentelemetry.io/otel-go-auto-target-exe: /app/main
+      labels:
+        app: golang-service
+    spec:
+      containers:
+      - image: tejaskokje/golang-service
+        imagePullPolicy: Always
+        name: golang-service
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      restartPolicy: Always
+      securityContext:
+        runAsUser: 0
+      shareProcessNamespace: true

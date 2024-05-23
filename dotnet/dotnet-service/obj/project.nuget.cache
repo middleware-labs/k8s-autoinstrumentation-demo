@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "6W7ZyNcycdU+BeCBk/rzqc7yL8r2inf15n0IPEBZGxTvGgApw2XH3GhUWxH8BmOCoR0cZMzKaq5cxXBi3wCUHQ==",
+  "success": true,
+  "projectFilePath": "/root/k8s-autoinstrumentation-demo/dotnet/dotnet-service/dotnet-service.csproj",
+  "expectedPackageFiles": [
+    "/root/.nuget/packages/microsoft.netcore.app.ref/7.0.19/microsoft.netcore.app.ref.7.0.19.nupkg.sha512",
+    "/root/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.19/microsoft.aspnetcore.app.ref.7.0.19.nupkg.sha512",
+    "/root/.nuget/packages/microsoft.netcore.app.host.linux-x64/7.0.19/microsoft.netcore.app.host.linux-x64.7.0.19.nupkg.sha512"
+  ],
+  "logs": []
+}

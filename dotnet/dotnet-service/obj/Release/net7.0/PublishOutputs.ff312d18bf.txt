@@ -1,0 +1,7 @@
+/app/dotnet-service
+/app/appsettings.Development.json
+/app/appsettings.json
+/app/dotnet-service.dll
+/app/dotnet-service.deps.json
+/app/dotnet-service.runtimeconfig.json
+/app/dotnet-service.pdb

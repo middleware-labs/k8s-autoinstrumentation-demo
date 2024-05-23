@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "juPMq5hGLC1EV3ua3CHeIjsR/rbUeuYKEgTYYi72Y6I=",
+  "Source": "dotnet-service",
+  "BasePath": "_content/dotnet-service",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

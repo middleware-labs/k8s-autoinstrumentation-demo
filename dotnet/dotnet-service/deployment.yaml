@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnet-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dotnet-service
+  template:
+    metadata:
+      labels:
+        app: dotnet-service
+      annotations:
+        instrumentation.opentelemetry.io/inject-dotnet: "true"
+    spec:
+      containers:
+        - name: dotnet-service
+          image: tejaskokje/dotnet-service
+          ports:
+            - containerPort: 8080
+

@@ -8,9 +8,9 @@ const server = http.createServer((req, res) => {
     if (req.url === '/fetch' && req.method === 'GET') {
         // Define the options for the request to the other service
         const options = {
-            hostname: 'golang-service',
+            hostname: 'java-service',
             port: 8080,
-            path: '/data',
+            path: '/fetch',
             method: 'GET'
         };
 

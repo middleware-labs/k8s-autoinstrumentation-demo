@@ -19,6 +19,7 @@ public class FetchController : ControllerBase
         var client = _httpClientFactory.CreateClient();
         var response = await client.GetAsync("http://golang-service:8080/fetch");
         var content = await response.Content.ReadAsStringAsync();
+        Response.StatusCode = (int)response.StatusCode;
         return Content(content);
     }
 }

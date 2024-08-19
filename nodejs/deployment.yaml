@@ -12,7 +12,7 @@ spec:
       labels:
         app: node-service
       annotations:
-        instrumentation.opentelemetry.io/inject-nodejs: "true"
+        instrumentation.opentelemetry.io/inject-nodejs: "mw-agent-ns/mw-autoinstrumentation"
     spec:
       containers:
         - name: node-service

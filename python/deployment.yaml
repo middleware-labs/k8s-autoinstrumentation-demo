@@ -10,7 +10,8 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-python: "true"
+        resource.opentelemetry.io/frontend: "true"
+        instrumentation.opentelemetry.io/inject-python: "mw-agent-ns/mw-autoinstrumentation"
       labels:
         app: python-service
     spec:

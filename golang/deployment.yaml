@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       annotations:
-        instrumentation.opentelemetry.io/inject-go: "true"
+        instrumentation.opentelemetry.io/inject-go: "mw-agent-ns/mw-autoinstrumentation"
         instrumentation.opentelemetry.io/otel-go-auto-target-exe: /app/main
       labels:
         app: golang-service
